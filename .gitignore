@@ -1,0 +1,53 @@
+# Ignore Ansible fact cache
+.ansible/
+
+# Ignore Ansible vault password file
+vault_password_file
+
+# Ignore Ansible log files
+ansible.log
+ansible-*.log
+
+# Ignore Ansible retry files
+*.retry
+
+# Ignore Ansible inventory files
+inventory/*
+
+# Ignore Ansible roles dependencies
+roles/*/molecule/
+roles/*/tests/
+roles/*/spec/
+roles/*/node_modules/
+roles/*/vendor/
+roles/*/dist/
+roles/*/build/
+roles/*/tmp/
+roles/*/logs/
+roles/*/artifacts/
+roles/*/packer_cache/
+
+# Ignore Ansible collections dependencies
+collections/*/molecule/
+collections/*/tests/
+collections/*/spec/
+collections/*/node_modules/
+collections/*/vendor/
+collections/*/dist/
+collections/*/build/
+collections/*/tmp/
+collections/*/logs/
+collections/*/artifacts/
+collections/*/packer_cache/
+
+# Ignore virtual environment
+venv/
+
+# Ignore Python artifacts
+*.egg-info/
+*.egg
+*.pyc
+__pycache__/
+
+# Ignore VSCode settings
+.vscode/

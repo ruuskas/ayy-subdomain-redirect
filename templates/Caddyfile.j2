@@ -1,0 +1,9 @@
+{% for subdomain in subdomains %}
+{{ subdomain.redirect_from|join(', ')}} {
+    redir {{ subdomain.redirect_to }}
+}
+{% endfor %}
+
+*.ayy.fi, *.otax.fi {
+    redir https://itguide.ayy.fi
+}

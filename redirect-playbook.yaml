@@ -1,0 +1,59 @@
+---
+- name: Playbook Name
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Caddy's dependencies
+      ansible.builtin.apt:
+        name:
+          - debian-keyring
+          - debian-archive-keyring
+          - apt-transport-https
+        state: present
+
+    - name: Add Caddy's repositorys GPG key
+      ansible.builtin.apt_key:
+        url: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
+        keyring: /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+        state: present
+
+    - name: Add Caddy's repository
+      ansible.builtin.apt_repository:
+        filename: caddy-stable
+        repo: deb [signed-by=/usr/share/keyrings/caddy-stable-archive-keyring.gpg] https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main
+        state: present
+
+    - name: Install Caddy
+      ansible.builtin.apt:
+        name: caddy
+        state: present
+
+    - name: Ensure that Caddy is running and enabled
+      ansible.builtin.service:
+        name: caddy
+        state: started
+        enabled: yes
+
+    - name: Add subdomain variables
+      ansible.builtin.include_vars:
+        dir: ./subdomains
+        name: subdomains
+        extensions: ["yaml"]
+
+    - name: Create Caddyfile from template
+      ansible.builtin.template:
+        src: ./templates/Caddyfile.j2
+        dest: /etc/caddy/Caddyfile
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - Reload Caddy
+
+  handlers:
+    - name: Reload Caddy
+      ansible.builtin.service:
+        name: caddy
+        state: reloaded
+
