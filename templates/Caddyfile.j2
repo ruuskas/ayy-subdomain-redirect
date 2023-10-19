@@ -1,7 +1,8 @@
-{% for subdomain in subdomains %}
-{{ subdomain.redirect_from|join(', ')}} {
-    redir {{ subdomain.redirect_to }}
-}
+{% for subdomain, obj in subdomains.items() %}
+{{ obj.redirect_from | join(", ")}} {
+    redir {{ obj.redirect_to }}{% if obj.include_path %}{uri}{% endif %} {% if obj.permanent%}permanent{% endif %}
+    
+} 
 {% endfor %}
 
 *.ayy.fi, *.otax.fi {
