@@ -1,5 +1,0 @@
-example2:
-  redirect_from: ["redirect-example.ayy.fi", "redirect-example.otax.fi"]
-  redirect_to: it-guide.ayy.fi
-  include_path: False
-  permanent: False
