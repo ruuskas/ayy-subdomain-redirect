@@ -33,7 +33,7 @@
       ansible.builtin.service:
         name: caddy
         state: started
-        enabled: yes
+        enabled: true
 
     - name: Add subdomain variables
       ansible.builtin.include_vars:
@@ -56,4 +56,3 @@
       ansible.builtin.service:
         name: caddy
         state: reloaded
-
