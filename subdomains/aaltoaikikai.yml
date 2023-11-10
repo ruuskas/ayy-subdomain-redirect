@@ -1,0 +1,5 @@
+aaltoaikikai:
+  redirect_from: ["aaltoaikikai.ayy.fi", "aaltoaikikai.otax.fi"]
+  redirect_to: "https://sites.google.com/view/aaltoaikikai"
+  include_path: false
+  permanent: false
