@@ -39,7 +39,7 @@
       ansible.builtin.include_vars:
         dir: ./subdomains
         name: subdomains
-        extensions: ["yaml"]
+        extensions: ["yaml", "yml"]
 
     - name: Create Caddyfile from template
       ansible.builtin.template:
