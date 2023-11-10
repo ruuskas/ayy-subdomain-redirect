@@ -1,0 +1,5 @@
+teekkaripurjehtijat:
+  redirect_from: ["trip.ayy.fi"]
+  redirect_to: "https://teekkaripurjehtijat.fi"
+  include_path: true
+  permanent: true
