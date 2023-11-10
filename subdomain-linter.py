@@ -91,7 +91,7 @@ def main(args):
     linting_errors = []
     keys_and_filename = []
     for file_name in os.listdir(args.folder):
-        if file_name.endswith(".yaml"):
+        if file_name.endswith(".yaml") or file_name.endswith(".yml"):
             file_path = os.path.join(args.folder, file_name)
             try:
                 check_yaml_format(file_path)

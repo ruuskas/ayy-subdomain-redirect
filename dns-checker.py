@@ -10,6 +10,7 @@ import dns.resolver
 import argparse
 import yaml
 from enum import Enum
+from itertools import chain
 
 TARGET_HOSTNAME = "jokeri.ayy.fi"
 
@@ -19,7 +20,9 @@ def load_subdomains():
     Load the subdomains from subdomains/*.yaml.
     """
     subdomains = []
-    for subdomain_file in Path("subdomains").glob("*.yaml"):
+    for subdomain_file in chain(
+        Path("subdomains").glob("*.yaml"), Path("subdomains").glob("*.yml")
+    ):
         with open(subdomain_file, "r") as f:
             entry = yaml.safe_load(f)
             for _, value in entry.items():
