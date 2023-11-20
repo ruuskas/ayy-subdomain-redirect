@@ -1,0 +1,5 @@
+lvi:
+  redirect_from: ["lvi.ayy.fi", "www.lvi.ayy.fi"]
+  redirect_to: teekkarienlvikerho.fi
+  include_path: true
+  permanent: true
