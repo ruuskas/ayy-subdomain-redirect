@@ -66,6 +66,10 @@ def check_business_rules(file_path):
                 raise LintError(
                     f"{file_path}: {redirect_from} should end with '.ayy.fi' or '.otax.fi'"
                 )
+            
+        # Check that redirect_to is a valid URL
+        if not subdomain_value["redirect_to"].startswith("http"):
+            raise LintError(f"{file_path}: redirect_to should be a valid URL")
 
 
 def get_subdomain_key(file_path):
@@ -100,6 +104,10 @@ def main(args):
             except LintError as e:
                 print("Error in file: ", file_path)
                 linting_errors.append(e)
+        else:
+            linting_errors.append(
+                LintError(f"{file_name} is not a .yaml or .yml file. Only YAML files are allowed")
+            )
     try:
         check_no_duplicate_keys(keys_and_filename)
     except LintError as e:
