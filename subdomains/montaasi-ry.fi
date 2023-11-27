@@ -1,0 +1,5 @@
+montaasi:
+  redirect_from: ["montaasi.ayy.fi"]
+  redirect_to: "https://montaasi-ry.fi"
+  include_path: true
+  permanent: true
