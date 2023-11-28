@@ -1,0 +1,5 @@
+linkki:
+  redirect_from: ["linkki.ayy.fi"]
+  redirect_to: "https://linkki-ry.fi"
+  include_path: false
+  permanent: true
