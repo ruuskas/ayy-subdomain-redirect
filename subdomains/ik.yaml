@@ -1,0 +1,6 @@
+ik:
+  redirect_from: ["ik.ayy.fi", "www.ik.ayy.fi"]
+  redirect_to: https://rakennusinsinoorikilta.fi
+  include_path: false
+  permanent: false
+  

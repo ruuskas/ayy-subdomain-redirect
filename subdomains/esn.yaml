@@ -1,0 +1,6 @@
+esn:
+  redirect_from: ["esn.ayy.fi", "www.esn.ayy.fi"]
+  redirect_to: https://www.esnaalto.org
+  include_path: false
+  permanent: false
+  

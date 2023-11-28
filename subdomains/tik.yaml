@@ -1,0 +1,6 @@
+tik:
+    redirect_from: ["tik.ayy.fi", "www.tik.ayy.fi"]
+    redirect_to: https://www.tietokilta.fi
+    include_path: false
+    permanent: false
+    

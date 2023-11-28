@@ -39,6 +39,7 @@ class FailReasons(Enum):
     NXDOMAIN = "NXDOMAIN"
     INCORRECT_IPv4 = "INCORRECT_IPv4"
     INCORRECT_IPv6 = "INCORRECT_IPv6"
+    NOANSWER = "NO_ANSWER"
 
 
 @dataclass
@@ -90,6 +91,8 @@ def check_dns_record(
             ipv6_success = True
     except dns.resolver.NXDOMAIN:
         return CheckResult(domain, False, False, [FailReasons.NXDOMAIN])
+    except dns.resolver.NoAnswer:
+        return CheckResult(domain, False, False, [FailReasons.NOANSWER])
 
     return CheckResult(domain, ipv4_success, ipv6_success, fails)
 
@@ -112,11 +115,11 @@ def print_fix_instructions(
             )
         if FailReasons.INCORRECT_IPv4 in fail.fails:
             print(
-                f"    - Create an A record for {fail.domain} that points to {target_a_record}"
+                f"    - Change {fail.domain} to point to {TARGET_HOSTNAME} (ipv4)"
             )
         if FailReasons.INCORRECT_IPv6 in fail.fails:
             print(
-                f"    - Create an AAAA record for {fail.domain} that points to {target_aaaa_record}"
+                f"    - Change {fail.domain} to point to {TARGET_HOSTNAME} (ipv6)"
             )
 
 

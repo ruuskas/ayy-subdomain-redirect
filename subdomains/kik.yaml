@@ -1,0 +1,6 @@
+kik:
+  redirect_from: ["kik.ayy.fi", "www.kik.ayy.fi"]
+  redirect_to: http://www.koneinsinoorikilta.fi
+  include_path: false
+  permanent: false
+  

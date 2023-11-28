@@ -1,0 +1,5 @@
+entropy:
+  redirect_from: ["entropy.ayy.fi", "www.entropy.ayy.fi"]
+  redirect_to: https://entropy.fi
+  include_path: false
+  permanent: false

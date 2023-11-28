@@ -1,0 +1,5 @@
+teekkariampujat:
+  redirect_from: ["ta.ayy.fi", "www.ta.ayy.fi"]
+  redirect_to: http://teekkariampujat.fi
+  include_path: false
+  permanent: false

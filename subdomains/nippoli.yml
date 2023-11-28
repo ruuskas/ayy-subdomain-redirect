@@ -1,0 +1,5 @@
+nippoli:
+  redirect_from: ["nippoli.ayy.fi", "www.nippoli.ayy.fi"]
+  redirect_to: https://nippoli.fi
+  include_path: false
+  permanent: false

@@ -1,0 +1,5 @@
+prodeko:
+  redirect_from: ["prodeko.ayy.fi", "www.prodeko.ayy.fi"]
+  redirect_to: https://prodeko.org
+  include_path: false
+  permanent: false

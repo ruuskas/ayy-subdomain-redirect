@@ -34,42 +34,44 @@ def check_business_rules(file_path):
         if not isinstance(subdomain, dict):
             raise LintError(f"{file_path}: Subdomain should be a dict")
 
-        # Check if subdomain has only one key
-        if len(subdomain.keys()) != 1:
-            raise LintError(f"{file_path}: Subdomain should have only one key")
+        # Check that subdomain has at least one key
+        if len(subdomain) == 0:
+            raise LintError(f"{file_path}: Subdomain should have at least one key")
 
-        # Check if subdomain key is a string
-        subdomain_key = list(subdomain.keys())[0]
-        if not isinstance(subdomain_key, str):
-            raise LintError(f"{file_path}: Subdomain key should be a string")
+        subdomain_keys = list(subdomain.keys())
+        # Check if subdomain keys are strings
+        for key in subdomain_keys:
+            if not isinstance(key, str):
+                raise LintError(f"{file_path}: Subdomain key {key} should be a string")
 
         # Check that the values of the subdomain key are valid
-        subdomain_value = subdomain[subdomain_key]
-        for key, value in subdomain_value.items():
-            if key not in SUBDOMAIN_VALUE_SCHEMA:
-                raise LintError(f"{file_path}: {key} is not a valid key")
-            if not isinstance(value, SUBDOMAIN_VALUE_SCHEMA[key]["type"]):
-                raise LintError(
-                    f"{file_path}: {key} should be a {SUBDOMAIN_VALUE_SCHEMA[key]['type']}"
-                )
+        for subdomain_key in subdomain_keys:
+            subdomain_value = subdomain[subdomain_key]
+            for key, value in subdomain_value.items():
+                if key not in SUBDOMAIN_VALUE_SCHEMA:
+                    raise LintError(f"{file_path}: {key} is not a valid key")
+                if not isinstance(value, SUBDOMAIN_VALUE_SCHEMA[key]["type"]):
+                    raise LintError(
+                        f"{file_path}: {key} should be a {SUBDOMAIN_VALUE_SCHEMA[key]['type']}"
+                    )
 
-        # Check that the required keys are present
-        for key, value in SUBDOMAIN_VALUE_SCHEMA.items():
-            if value["required"] and key not in subdomain_value:
-                raise LintError(f"{file_path}: {key} is required")
+            # Check that the required keys are present
+            for key, value in SUBDOMAIN_VALUE_SCHEMA.items():
+                if value["required"] and key not in subdomain_value:
+                    raise LintError(f"{file_path}: {key} is required")
 
-        # All values in redirect_from should be end with '.ayy.fi' or '.otax.fi'.
-        for redirect_from in subdomain_value["redirect_from"]:
-            if not redirect_from.endswith(".ayy.fi") and not redirect_from.endswith(
-                ".otax.fi"
-            ):
-                raise LintError(
-                    f"{file_path}: {redirect_from} should end with '.ayy.fi' or '.otax.fi'"
-                )
+            # All values in redirect_from should be end with '.ayy.fi' or '.otax.fi'.
+            for redirect_from in subdomain_value["redirect_from"]:
+                if not redirect_from.endswith(".ayy.fi") and not redirect_from.endswith(
+                    ".otax.fi"
+                ):
+                    raise LintError(
+                        f"{file_path}: {redirect_from} should end with '.ayy.fi' or '.otax.fi'"
+                    )
             
-        # Check that redirect_to is a valid URL
-        if not subdomain_value["redirect_to"].startswith("http"):
-            raise LintError(f"{file_path}: redirect_to should be a valid URL")
+            # Check that redirect_to is a valid URL
+            if not subdomain_value["redirect_to"].startswith("http"):
+                raise LintError(f"{file_path}: redirect_to should be a valid URL")
 
 
 def get_subdomain_key(file_path):

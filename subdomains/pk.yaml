@@ -1,0 +1,5 @@
+pk:
+  redirect_from: ["pk.ayy.fi", "www.pk.ayy.fi"]
+  redirect_to: https://polyteknikkojenkuoro.fi 
+  include_path: false
+  permanent: false
