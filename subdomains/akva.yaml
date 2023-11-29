@@ -1,0 +1,5 @@
+akva:
+  redirect_from: ["akva.ayy.fi", "www.akva.ayy.fi"]
+  redirect_to: "https://akvavesi.fi"
+  include_path: false
+  permanent: false
