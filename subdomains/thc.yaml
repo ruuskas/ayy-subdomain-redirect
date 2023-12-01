@@ -1,0 +1,5 @@
+thc:
+  redirect_from: ["thc.ayy.fi", "www.thc.ayy.fi"]
+  redirect_to: "https://hempclub.fi"
+  include_path: true
+  permanent: true

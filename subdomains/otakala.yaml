@@ -1,0 +1,5 @@
+otakala:
+  redirect_from: ["otakala.ayy.fi", "www.otakala.ayy.fi"]
+  redirect_to: "https://otakala.fi"
+  include_path: true
+  permanent: true
