@@ -1,0 +1,5 @@
+tak:
+  redirect_from: ["tak.ayy.fi", "www.tak.ayy.fi"]
+  redirect_to: "https://teekkarienautokerho.fi"
+  include_path: true
+  permanent: true
