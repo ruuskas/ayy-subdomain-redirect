@@ -1,0 +1,5 @@
+orc:
+  redirect_from: ["orc.ayy.fi", "www.orc.ayy.fi"]
+  redirect_to: "https://tiny.cc/orcsivut"
+  include_path: false
+  permanent: false
