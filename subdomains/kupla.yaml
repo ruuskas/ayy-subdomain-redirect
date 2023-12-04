@@ -1,0 +1,5 @@
+kupla:
+    redirect_from: ["kupla.ayy.fi", "www.kupla.ayy.fi"]
+    redirect_to: "https://kupla.org"
+    include_path: false
+    permanent: false
